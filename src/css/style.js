@@ -5,5 +5,6 @@
  */
 
 import './frontend/hb.scss'
+import './frontend/content-index.scss'
 import './frontend/landing.scss'
 import './frontend/landing-dev.scss'

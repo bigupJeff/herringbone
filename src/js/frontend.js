@@ -10,6 +10,7 @@ import { mobilePopupMenu } from './frontend/mobile-popup-menu'
 import { modal } from './frontend/modal'
 import { screenClass } from './frontend/screenclass'
 import { uspSection } from './frontend/usp-section'
+import { contentIndex } from './frontend/content-index'
 
 dropdownControl.initialise()
 hideHeader()
@@ -17,3 +18,4 @@ mobilePopupMenu()
 modal()
 screenClass()
 uspSection()
+contentIndex()
