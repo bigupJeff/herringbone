@@ -1,8 +1,8 @@
 .contentIndex {
 	--tabWidth: 1.8rem;
 	--tabMarginRight: 0.75rem;
-	--colour-background: #222e;
-	--colour-foreground: #fffc;
+	--colour-background: var(--hb_black);
+	--colour-foreground: var(--hb_white);
 	--boxShadow: 0 0 3px 0 #0005;
 	/* display: flex; */
 	position: fixed;
