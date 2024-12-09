@@ -4,7 +4,7 @@
  *
  * @package herringbone
  * @author Jefferson Real <me@jeffersonreal.uk>
- * @copyright Copyright (c) 2023, Jefferson Real
+ * @copyright Copyright (c) 2022, Jefferson Real
  */
 
 wp_enqueue_script( 'hb_hideheader_js' );
@@ -22,10 +22,6 @@ get_header( 'landing' );
 		<?php get_template_part( 'template-parts/landing-developer/services' ); ?>
 	</section>
 
-	<section class="projects" id="section-projects">
-		<?php get_template_part( 'template-parts/landing-developer/projects' ); ?>
-	</section>
-
 	<section class="usp" id="working-with-me">
 		<?php get_template_part( 'template-parts/landing-developer/usp' ); ?>
 	</section>
@@ -41,4 +37,4 @@ get_header( 'landing' );
 	get_template_part( 'template-parts/modal', 'contact' );
 ?>
 
-<!--<script> console.log( 'wp-template: landing-page.php' );</script>--> 
+<!--<script> console.log( 'wp-template: landing-page.php' );</script>-->

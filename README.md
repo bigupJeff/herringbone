@@ -81,9 +81,3 @@ Specifying a Coding Standard:
 
 [PHP_CodeSniffer Github](https://github.com/squizlabs/PHP_CodeSniffer#installation)
 [WordPress Coding Standards for PHP_CodeSniffer Github](https://github.com/WordPress/WordPress-Coding-Standards#installation)
-
-#### PHP8.0 Bugfix
-
-See this README for patching instructions:
-
-'./vendor-wpcs-php8-bugfix/wp-coding-standards/wpcs/WordPress/Sniffs/WhiteSpace/README.md'

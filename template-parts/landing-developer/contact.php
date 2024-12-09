@@ -5,7 +5,7 @@
  *
  * @package herringbone
  * @author Jefferson Real <me@jeffersonreal.uk>
- * @copyright Copyright (c) 2023, Jefferson Real
+ * @copyright Copyright (c) 2022, Jefferson Real
  */
 ?>
 
@@ -23,7 +23,7 @@
     </div>
 
     <div class="align_me-centre">
-        <?php echo do_shortcode('[bigup_contact_form title="" message=""]'); ?>
+        <?php echo do_shortcode('[bigup_forms title="" message=""]'); ?>
     </div>
 
 </div>

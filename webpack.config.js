@@ -30,8 +30,7 @@ module.exports = {
 	},
 	devtool: "source-map",
 	entry: {
-		frontend: './src/js/frontend.js',
-		customizer: './src/js/customizer.js',
+		bundle: './src/js/frontend.js',
 		style: './src/css/style.js',
 		'style-admin': './src/css/style-admin.js',
 	},

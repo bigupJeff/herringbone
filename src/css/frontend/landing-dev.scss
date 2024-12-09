@@ -1,4 +1,18 @@
-/* INDEX
+/*~~~~~~~~~~oOo~~~~~~~~~~o~
+~o DOCUMENT  INFORMATION o~
+
+o Document  Herringbone Theme - Developer Landing Page CSS
+o Version   v0.1
+o Author	Jefferson Real
+o Contact   me@jeffersonreal.uk
+
+This style sheet must only contain styles specific to the developer landing
+page. It will ONLY be loaded for this single page. Any styles to be reused on
+multiple landing pages should go in landing.css.
+
+
+~o~~~~oOo~~~~o~
+~o CSS INDEX o~
 
 1. PAGE
 	*empty*
@@ -20,492 +34,524 @@
 /*------------------------------------------------- 2.1 SECTION - WELCOME --- */
 
 
-.welcome {
-
-	.landing_content {
-		display: flex;
-		flex-flow: row nowrap;
-        justify-content: center;
-        margin-bottom: 15vh;
-		min-height: 100vh;
-
-		.twinkle_container {
-			position: absolute;
-			visibility: hidden;
-			width: 0;
-			height: 0;
-		}
-	}
-
-    .landing_backdrop {
-        background:
-            radial-gradient(
-                at 9% 9%,
-                #fffb 0%,
-                #fff0 30%
-            ),
-            linear-gradient(
-				var(--hb_blue-light) 0%,
-				var(--hb_blue-lightest) 20%,
-				var(--hb_yellow-light) 55%,
-				var(--hb_orange-light) 60%,
-				#fff 61%
-			);
-    }
+.welcome>.landing_content {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	margin-bottom: 200px;
 }
-        .desert_clouds {
-            position: absolute;
-            /* dimensions are inline */
-            width: 100%;
-            height: 100%;
-        }
-            .desert_cloud {
-                animation: linear infinite animation_scrollLeftToRight;
-                animation-duration: var(--animDur);
-            }
-                @keyframes animation_scrollLeftToRight {
-                    0%		{ transform: translateX(0); }
-                    45%	    { opacity:1; }
-                    50.001% { transform: translateX(120%);  opacity:0; }
-                    50.002% { transform: translateX(-120%); opacity:0; }
-                    55%	    { opacity:1; }
-                    100%	{ transform: translateX(0); }
-                }
-        .desert_sun {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            margin: 3vw;
-        }
-        .desert_terrain {
-            display: flex;
-            position: relative;
-            bottom: 0;
-            justify-content: center;
-            z-index: 0;
-            margin-top: auto;
-            width: 100%;
-            height: 75%;
-            overflow: hidden;
-        }
-            .desert_furniture {
-                width: clamp(100%, 1920px, 177.777%);
-                height: 100%;
 
-				.desert_grass,
-				.desert_rock,
-				.desert_cactus {
-					overflow: visible;
+.welcome>.landing_backdrop {
+	background: radial-gradient(at 9% 9%, #fffb 0, #fff0 30%), linear-gradient(#66d4ff, #ccf1ff 20%, #fce889 55%, #fcd762 60%, #0000 61%);
+}
 
-					.desert_shadow {
-						transform-origin: center;
-						transform: skewX(55deg) scaleY(0.3);
-					}
-				}
-            }
-            .desert_sand {
-                position: absolute;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                z-index: -1;
-                width: clamp(100%, 1920px, 175%);
-                height: 100%;
-            }
-    .desert_fills {
-        position: absolute;
-        opacity: 0;
-        height: 0;
-    }
+.desert_clouds {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
+.desert_cloud {
+	animation: animation_scrollLeftToRight linear infinite;
+	animation-duration: var(--animDur);
+}
+
+@keyframes animation_scrollLeftToRight {
+	0%		{ transform: translateX(0); }
+	45%	    { opacity:1; }
+	50.001% { transform: translateX(120%);  opacity:0; }
+	50.002% { transform: translateX(-120%); opacity:0; }
+	55%	    { opacity:1; }
+	100%	{ transform: translateX(0); }
+}
+
+.desert_sun {
+	height: 20%;
+	left: 0;
+	margin-left: 2%;
+	margin-top: 15px;
+	max-height: 25vw;
+	position: absolute;
+	top: 0;
+	z-index: -1;
+}
+
+.desert_terrain {
+	bottom: 0;
+	display: flex;
+	height: 75%;
+	justify-content: center;
+	margin-top: auto;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	z-index: 0;
+}
+
+.desert_furniture {
+	height: 100%;
+	width: clamp(100%, 1920px, 177.777%);
+}
+
+.desert_sand {
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	right: 0;
+	width: clamp(100%, 1920px, 175%);
+	z-index: -1;
+}
+
+.desert_fills {
+	height: 0;
+	opacity: 0;
+	position: absolute;
+}
+
 
 /*------------------------------------------------ 2.2 SECTION - SERVICES --- */
 
 
- .services > .landing_backdrop {
+.services>.landing_backdrop {
 	background: var(--hb_white);
 }
 
- .services > .landing_content {
-	display: flex;
+.services>.landing_content {
 	flex-flow: column;
-	align-items: center;
-	justify-content: center;
 	margin: 0;
-	padding: 0;
 	min-height: 80vh;
-	margin-bottom: 6em;
+	padding: 0;
+}
+
+.graphicContainer,
+.services>.landing_content {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.graphicContainer {
+	font-size: 80%;
+	margin: auto 0;
+	padding: 10%;
+}
+
+@media (min-width:48em) {
+	.graphicContainer {
+		font-size: 60%;
+	}
+}
+
+@media (min-width:70em) {
+	.graphicContainer {
+		font-size: 80%;
+	}
 }
 
 
 /*-------------------------------------------------  2.3 SECTION - TICKLE --- */
 
 
-.tickle > .landing_backdrop {
+.tickle>.landing_backdrop {
 	background: linear-gradient(#fff 60%, #fff3d4);
 }
 
-.tickle > .landing_content {
+.tickle>.landing_content {
+	align-items: center;
 	display: flex;
 	flex-flow: column;
-	align-items: center;
 	justify-content: center;
 	margin: 0;
-	padding: 0;
 	min-height: 80vh;
+	padding: 0;
 }
 
 
 /*----------------------------------------------------- 2.4 SECTION - USP --- */
 
 
-.usp > .landing_backdrop {
-	background: var(--hb_yellow-lightest);
+.usp>.landing_backdrop {
+	background: #fff3d4;
 }
-	.usp_wall {
-		height: 100%;
-	}
 
-.usp > .landing_content {
+.usp_wall {
+	height: 100%;
+}
+
+.usp>.landing_content {
 	display: grid;
-	position: relative;
-	grid-template: repeat(3, 33.333%) / repeat(2, 50%);
-	grid-template-areas: "a b"
-						 "c d"
-						 "e f";
-	padding: 0;
-	width: 100%;
+	grid-template: repeat(3, 33.333%) /repeat(2, 50%);
+	grid-template-areas: "a b""c d""e f";
 	height: 100vh;
+	padding: 0;
+	position: relative;
 	text-align: center;
+	width: 100%;
 }
-.landscape .usp > .landing_content {
+
+.landscape .usp>.landing_content {
 	display: grid;
-	grid-template: repeat(2, 50%) / repeat(3, 33.333%);
-	grid-template-areas: "a b c"
-						 "d e f";
+	grid-template: repeat(2, 50%) /repeat(3, 33.333%);
+	grid-template-areas: "a b c""d e f";
 }
-	.usp_title {
-		font-family: var(--hb_font-display);
-		font-size: var(--hb_font-xxxl);
-		font-weight: 400;
-		margin-block-end: 0;
-		margin-block-start: 0;
-		line-height: 1.6em;
-	}
-		.usp_instruction::after {
-			content: "\00a0\1F335"; /* space & cactus emoji */
-		}
-		.usp_instruction {
-			display: block;
-			margin: 5% auto;
-			font-size: 1em;
-			font-weight: 600;
-		}
-			.usp_state {
-				display: none;
-			}
-				.usp_card {
-					display: flex;
-					flex-flow: column;
-					grid-area: var(--grid_area);
-					align-items: center;
-					justify-content: flex-end;
-					width: 100%;
-				}
-				#usp_default + .usp_card {
-					display: none;
-				}
-					.usp_graphicWrap {
-						display: grid;
-						grid: 10% 90% / 100%;
-						grid-template-areas:
-							"plumbob"
-							"cacti";
-						justify-items: center;
-						cursor: pointer;
-						padding-top: 4vh;
-						max-width: 100%;
-						height: 100%;
-						overflow: hidden;
-                        width: 100%;
-					}
-						.usp_cactiBox {
-							aspect-ratio: 25 / 35;
-							place-items: flex-end;
-							display: flex;
-							grid-area: cacti;
-							perspective: 12em;
-							width: auto;
-							height: 100%;
-                            max-width: 100%;
-						}
-							.usp_cacti {
-								filter: drop-shadow(1px -2px 1px #0006);
-								place-self: end center;
-								width: 100%;
-								max-height: 100%;
-							}
-						.usp_cactiShadow {
-							place-self: end center;
-							grid-area: shadow;
-							z-index: -1;
-							width: 100%;
-							height: 0;
-						}
-					.usp_blurb,
-					.usp_subtitle {
-						opacity: 0;
-						max-height: 0;
-						font-size: 0;
-					}
-                        .usp_blurb > .copy {
-                            overflow-y: auto;
-                        }
-					.usp_button {
-						display: none;
-						grid-area: button;
-						margin: 1% auto;
-						background-position: center center;
-						background-repeat: no-repeat;
-                        background-size: 100% 100%;
-						cursor: pointer;
-						padding: 0.8em 1.2em;
-						width: -webkit-fit-content;
-						width: -moz-fit-content;
-						width: fit-content;
-						color: var(--hb_white);
-						font-family: var(--hb_font-display);
-						font-weight: 400;
-					}
-						.usp_button.red {
-							background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 150 100'%3E%3Cpath fill='%23e54242' d='M11 8l125-7c8 0 15 7 13 19l-6 65c-1 9-5 15-13 14L24 92c-6 0-12-3-14-15L1 23C0 15 4 8 11 8z'/%3E%3C/svg%3E");										}
-						.usp_button.green {
-							background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 150 100'%3E%3Cpath fill='%2361af76' d='M11 8l125-7c8 0 15 7 13 19l-6 65c-1 9-5 15-13 14L24 92c-6 0-12-3-14-15L1 23C0 15 4 8 11 8z'/%3E%3C/svg%3E");										}
 
+.usp_title {
+	font-family: Wellfleet;
+	font-weight: 400;
+	line-height: 1.6em;
+	margin-block-end: 1.688em;
+	margin-block-start: 0;
+}
 
-/* .usp_state:checked */
-#usp_default:checked + .usp_card {
-	display: flex;
+.usp_instruction:after {
+	content: "\00a0\1F335";
 }
-.usp_state:checked + .usp_card {
-	display: grid;
-	grid-template: 35% 55% 10% / 100%;
-	grid-template-areas: "cactus"
-						 "blurb "
-						 "button";
-	grid-row: 1 / -1;
-	grid-column: 1 / -1;
-	justify-content: space-evenly;
-	z-index: 1;
-	padding: 5vh 5vw;
-	-webkit-animation: animation_fadeIn 0.75s ease;
-	animation: animation_fadeIn 0.75s ease;
-}
-.landscape .usp_state:checked + .usp_card {
-	-moz-column-gap: 1em;
-	     column-gap: 1em;
-	grid-template: 70% 30% / 80% 20%;
-	grid-template-areas: "blurb cactus"
-						 "blurb button";
-}
-	.landscape .usp_state:checked + .usp_card .usp_blurb {
-		text-align: start;
-	}
-	.usp_state:checked + .usp_card .usp_graphicWrap {
-		display: grid;
-		grid: 12% 76% 4% / 100%;
-		gap: 4%;
-		grid-area: cactus;
-		padding-top: 0;
-		height: 80%;
-		pointer-events: none;
-		grid-template-areas:
-			"plumbob"
-			"cacti"
-			"shadow";
-	}
-		.usp_state:checked + .usp_card  .plumbob {
-			-webkit-animation: animation_floaty 0.5s ease-in-out alternate infinite;
-			animation: animation_floaty 0.5s ease-in-out alternate infinite;
-		}
-		.usp_state:checked + .usp_card .usp_cactiBox {
-			place-items: flex-start;
-			-webkit-animation: animation_floaty 0.5s ease-in-out alternate infinite;
-				    animation: animation_floaty 0.5s ease-in-out alternate infinite;
-		}
 
-			.usp_state:checked + .usp_card .usp_cacti {
-				place-self: center center;
-				-webkit-animation: animation_swagger 2s linear alternate infinite;
-					    animation: animation_swagger 2s linear alternate infinite;
-			}
-		.usp_state:checked + .usp_card .usp_cactiShadow {
-			height: 100%;
-			-webkit-animation: animation_swell 0.5s ease-in-out alternate infinite;
-					animation: animation_swell 0.5s ease-in-out alternate infinite;
-		}
-	.usp_state:checked + .usp_card > .usp_blurb {
-		display: flex;
-		flex-flow: column;
-		grid-area: blurb;
-		justify-content: space-evenly;
-		opacity: 1;
-		height: 100%;
-		max-height: 100%;
-		font-size: 1em;
-	}
-	.usp_state:checked + .usp_card .usp_button {
+.usp_instruction {
+	display: none;
+	font-size: 1em;
+	font-weight: 600;
+	margin: 5% auto;
+}
+
+@media (min-width:48em) {
+	.usp_instruction {
 		display: block;
 	}
+}
 
+.usp_state {
+	display: none;
+}
 
-/* fallback for old devices 360x640 */
-@media ( max-width: 22.5em ), ( max-height: 22.5em ) and ( max-width: 40em ) {
-	.usp_state:checked + .usp_card {
-		grid-template: 25% 65% 10% / 100%;
-		grid-template-areas: "cactus"
-								"blurb "
-								"button";
+.usp_card {
+	align-items: center;
+	display: flex;
+	flex-flow: column;
+	grid-area: var(--grid_area);
+	justify-content: flex-end;
+	width: 100%;
+}
+
+#usp_default+.usp_card {
+	display: none;
+}
+
+.usp_graphicWrap {
+	cursor: pointer;
+	display: grid;
+	grid: 10% 90%/100%;
+	grid-template-areas: "plumbob""cacti";
+	height: 100%;
+	justify-items: center;
+	max-width: 100%;
+	overflow: hidden;
+	padding-top: 4vh;
+	width: 100%;
+}
+
+.usp_cactiBox {
+	aspect-ratio: 25/35;
+	display: flex;
+	grid-area: cacti;
+	height: 100%;
+	max-width: 100%;
+	perspective: 12em;
+	place-items: flex-end;
+	width: auto;
+}
+
+.usp_cacti {
+	filter: drop-shadow(1px -2px 1px #0006);
+	max-height: 100%;
+}
+
+.usp_cacti,
+.usp_cactiShadow {
+	place-self: end center;
+	width: 100%;
+}
+
+.usp_cactiShadow {
+	grid-area: shadow;
+	height: 0;
+	z-index: -1;
+}
+
+.usp_blurb,
+.usp_subtitle {
+	font-size: 0;
+	max-height: 0;
+	opacity: 0;
+}
+
+.usp_blurb>.copy {
+	overflow-y: auto;
+}
+
+.usp_button {
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	color: #fff;
+	cursor: pointer;
+	display: none;
+	font-family: Wellfleet;
+	font-weight: 400;
+	grid-area: button;
+	margin: 1% auto;
+	padding: .8em 1.2em;
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
+	width: fit-content;
+}
+
+@media (max-width:47.999em) {
+	.usp_button.green {
+		display: block;
 	}
-	.usp_state:checked + .usp_card > .usp_graphicWrap {
+}
+
+.usp_button.red {
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 150 100'%3E%3Cpath fill='%23e54242' d='m11 8 125-7c8 0 15 7 13 19l-6 65c-1 9-5 15-13 14L24 92c-6 0-12-3-14-15L1 23C0 15 4 8 11 8z'/%3E%3C/svg%3E");
+}
+
+.usp_button.green {
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 150 100'%3E%3Cpath fill='%2361af76' d='m11 8 125-7c8 0 15 7 13 19l-6 65c-1 9-5 15-13 14L24 92c-6 0-12-3-14-15L1 23C0 15 4 8 11 8z'/%3E%3C/svg%3E");
+}
+
+#usp_default:checked+.usp_card {
+	display: flex;
+}
+
+.usp_state:checked+.usp_card {
+	-webkit-animation: animation_fadeIn .75s ease;
+	animation: animation_fadeIn .75s ease;
+	display: grid;
+	grid-column: 1/-1;
+	grid-row: 1/-1;
+	grid-template: 30% 70%/100%;
+	grid-template-areas: "cactus""blurb ";
+	justify-content: space-evenly;
+	padding: 5vh 5vw;
+	z-index: 1;
+}
+
+.landscape .usp_state:checked+.usp_card {
+	-moz-column-gap: 1em;
+	column-gap: 1em;
+	grid-template: 70% 30%/80% 20%;
+	grid-template-areas: "blurb cactus""blurb button";
+}
+
+.landscape .usp_state:checked+.usp_card .usp_blurb {
+	text-align: start;
+}
+
+.usp_state:checked+.usp_card .usp_graphicWrap {
+	display: grid;
+	gap: 4%;
+	grid: 12% 76% 4%/100%;
+	grid-area: cactus;
+	grid-template-areas: "plumbob""cacti""shadow";
+	height: 80%;
+	padding-top: 0;
+	pointer-events: none;
+}
+
+.usp_state:checked+.usp_card .plumbob,
+.usp_state:checked+.usp_card .usp_cactiBox {
+	-webkit-animation: animation_floaty .5s ease-in-out infinite alternate;
+	animation: animation_floaty .5s ease-in-out infinite alternate;
+}
+
+.usp_state:checked+.usp_card .usp_cactiBox {
+	place-items: flex-start;
+}
+
+.usp_state:checked+.usp_card .usp_cacti {
+	-webkit-animation: animation_swagger 2s linear infinite alternate;
+	animation: animation_swagger 2s linear infinite alternate;
+	place-self: center center;
+}
+
+.usp_state:checked+.usp_card .usp_cactiShadow {
+	-webkit-animation: animation_swell .5s ease-in-out infinite alternate;
+	animation: animation_swell .5s ease-in-out infinite alternate;
+	height: 100%;
+}
+
+.usp_state:checked+.usp_card>.usp_blurb {
+	display: flex;
+	flex-flow: column;
+	font-size: 1em;
+	grid-area: blurb;
+	height: 100%;
+	justify-content: center;
+	max-height: 100%;
+	opacity: 1;
+}
+
+.usp_state:checked+.usp_card .usp_button.red {
+	display: block;
+}
+
+@media (max-height:22.5em) and (max-width:40em),
+(max-width:22.5em) {
+	.usp_state:checked+.usp_card {
+		grid-template: 25% 75%/100%;
+		grid-template-areas: "cactus""blurb ";
+	}
+
+	.usp_state:checked+.usp_card>.usp_graphicWrap {
 		height: 100%;
 	}
+
 	.usp_blurb,
 	.usp_subtitle {
 		margin: 0;
 	}
 }
 
-@media (max-width: 47.999em) {
+@media (max-width:47.999em) {
 	.usp_card {
 		background: #fff3d4;
 	}
 }
 
-@media (min-width: 48em) {
-	.usp > .landing_content {
-		grid-template: 60% repeat(2, 20%) / repeat(3, 33.333%);
-		grid-template-areas: "i i i"
-							 "a b c"
-							 "d e f";
+@media (min-width:48em) {
+	.usp>.landing_content {
+		grid-template: 60% repeat(2, 20%) /repeat(3, 33.333%);
+		grid-template-areas: "i i i""a b c""d e f";
 	}
-	.landscape .usp > .landing_content {
-		grid-template: 70% 30% / repeat(6, 16.666%);
-		grid-template-areas: "i i i i i i"
-							 "a b c d e f";
-	}
-		.landscape .usp_state:checked + .usp_card {
-			grid-template: 100% / 80% 20%;
-			grid-template-areas: "blurb cactus";
-		}
-			.usp_graphicWrap {
-				padding: 0;
-			}
-			.usp_subtitle {
-				opacity: revert;
-				margin: 0;
-				max-height: revert;
-				font-family: var(--hb_font-display);
-				font-size: revert;
-				font-weight: 400;
-			}
-			.usp_card > .usp_button,
-			.usp_state:checked + .usp_card > .usp_button {
-				display:none;
-			}
-		.usp_state:checked + .usp_card {
-			filter: drop-shadow(2px 4px 5px #0008);
-			grid-area: i;
-			grid-template: 100% / 80% 20%;
-			grid-template-areas: "blurb cactus";
-			margin: auto;
-			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' width='100%25' height='100%25' viewBox='0 0 1720 570'%3E%3Cpath fill='%23fafafa' d='M79 21L1640 0c45-1 88 31 79 85l-64 393c-9 54-47 93-102 92L144 539c-49-1-84-36-91-79L1 115c-7-43 25-94 78-94z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            width: -webkit-max-content;
-			width: -moz-max-content;
-			width: max-content;
-			max-width: calc( 56em + 10vw );
-			text-align: left;
-		}
-			.usp_state:checked + .usp_card > .usp_blurb {
-				display: flex;
-				flex-flow: column;
-				align-items: flex-start;
-				justify-content: center;
-				padding: 2%;
-				max-width: 44em;
-			}
-				.usp_state:checked + .usp_card > .usp_graphicWrap {
-					height: 100%;
-				}
 
-}/* media min-width: 48em */
-
-@media (min-width: 70em) {
-	.usp > .landing_content {
-		grid-template: 15% 50% 35% / repeat(6, 16.666%);
-		grid-template-areas: "i i i i i i"
-							 "i i i i i i"
-							 "a b c d e f";
+	.landscape .usp>.landing_content {
+		grid-template: 70% 30%/repeat(6, 16.666%);
+		grid-template-areas: "i i i i i i""a b c d e f";
 	}
-	.usp_state:checked + .usp_card {
+
+	.landscape .usp_state:checked+.usp_card {
+		grid-template: 100%/80% 20%;
+		grid-template-areas: "blurb cactus";
+	}
+
+	.usp_graphicWrap {
+		padding: 0;
+	}
+
+	.usp_subtitle {
+		font-family: Wellfleet;
+		font-size: revert;
+		font-weight: 400;
+		margin: 0;
+		max-height: revert;
+		opacity: revert;
+	}
+
+	.usp_card>.usp_button,
+	.usp_state:checked+.usp_card>.usp_button {
+		display: none;
+	}
+
+	.usp_state:checked+.usp_card {
+		background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 1720 570'%3E%3Cpath fill='%23fafafa' d='M79 21 1640 0c45-1 88 31 79 85l-64 393c-9 54-47 93-102 92L144 539c-49-1-84-36-91-79L1 115c-7-43 25-94 78-94z'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		filter: drop-shadow(2px 4px 5px #0008);
+		grid-area: i;
+		grid-template: 100%/80% 20%;
+		grid-template-areas: "blurb cactus";
+		margin: auto;
+		max-width: calc(56em + 10vw);
+		text-align: left;
+		width: -webkit-max-content;
+		width: -moz-max-content;
+		width: max-content;
+	}
+
+	.usp_state:checked+.usp_card>.usp_blurb {
+		align-items: flex-start;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		max-width: 44em;
+		padding: 2%;
+	}
+
+	.usp_state:checked+.usp_card>.usp_graphicWrap {
+		height: 100%;
+	}
+}
+
+@media (min-width:70em) {
+	.usp>.landing_content {
+		grid-template: 15% 50% 35%/repeat(6, 16.666%);
+		grid-template-areas: "i i i i i i""i i i i i i""a b c d e f";
+	}
+
+	.usp_state:checked+.usp_card {
 		max-height: 60vh;
 	}
-}/* media min-width: 70em */
+}
 
 
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - 2.4.1 USP - PLUMBOB - - */
 
 
 .plumbob {
-    aspect-ratio: 1 / 1;
-    place-items: center;
-    display: grid;
-    perspective: 100vmin;
-    perspective-origin: 50% 20%;
+	aspect-ratio: 1/1;
+	display: grid;
 	height: 100%;
+	perspective: 100vmin;
+	perspective-origin: 50% 20%;
+	place-items: center;
 }
-	.plumbob_model {
-		display: grid;
-		grid: 1fr 1fr / 100%;
-		transform-style: preserve-3d;
-		width: 50%;
-		height: 100%;
-		animation: animation_rotate 6s infinite linear;
-	}
-		.plumbob_top,
-		.plumbob_bottom {
-			place-items: center;
-			display: grid;
-			position: relative;
-			transform-style: preserve-3d;
-			width: 100%;
-			height: 100%;
-		}
-		.plumbob_bottom {
-			transform: rotateX( 180deg );
-		}
-			.plumbob_face {
-				color: var(--hb_yellow-light);
-				position:absolute;
-				transform: rotateY( var( --rotateY ) )
-						   rotateX( 23deg );
-				transform-origin: 50% 0% 0;
-				margin-bottom: -16.5%;
-				width: 45%;
-				height: 100%;
-				animation: animation_lightInOut 6s infinite linear;
-				animation-delay: var( --animDelay );
-			}
+
+.plumbob_model {
+	animation: animation_rotate 6s linear infinite;
+	grid: 1fr 1fr/100%;
+	width: 50%;
+}
+
+.plumbob_bottom,
+.plumbob_model,
+.plumbob_top {
+	display: grid;
+	height: 100%;
+	transform-style: preserve-3d;
+}
+
+.plumbob_bottom,
+.plumbob_top {
+	place-items: center;
+	position: relative;
+	width: 100%;
+}
+
+.plumbob_bottom {
+	transform: rotateX(180deg);
+}
+
+.plumbob_face {
+	animation: animation_lightInOut 6s linear infinite;
+	animation-delay: var(--animDelay);
+	color: #e2e542;
+	height: 100%;
+	margin-bottom: -16.5%;
+	position: absolute;
+	transform: rotateY(var(--rotateY)) rotateX(23deg);
+	transform-origin: 50% 0 0;
+	width: 45%;
+}
 
 
 /*------------------------------------------------- 2.5 SECTION - CONTACT --- */
 
 
 section.contact {
-    padding-top: 2em;
-    padding-bottom: 5em;
+	padding-bottom: 5em;
+	padding-top: 2em;
 }
 
 

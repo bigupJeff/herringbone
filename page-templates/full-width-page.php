@@ -1,10 +1,10 @@
 <?php
 /**
- * Template Name: Single Column
+ * Template Name: Full Width Page
  *
  * @package herringbone
  * @author Jefferson Real <me@jeffersonreal.uk>
- * @copyright Copyright (c) 2023, Jefferson Real
+ * @copyright Copyright (c) 2022, Jefferson Real
  */
 
 get_header(); ?>
