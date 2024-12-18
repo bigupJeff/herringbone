@@ -7,6 +7,6 @@
 import './common/fonts.scss'
 import './common/variables.scss'
 import './frontend/hb.scss'
-import './frontend/content-index.scss'
+import './frontend/page-index.scss'
 import './frontend/landing.scss'
 import './frontend/landing-dev.scss'

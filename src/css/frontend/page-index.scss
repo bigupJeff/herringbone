@@ -1,0 +1,264 @@
+.pageIndex {
+	--tabWidth: 1.8em;
+	--tabMarginRight: 0.75em;
+	--colour-background: var(--hb_black);
+	--colour-foreground:  var(--hb_white);
+	--boxShadow: 0 0 3px 0 #0005;
+	/* display: flex; */
+	position: fixed;
+	z-index: 99;
+	left: 0;
+	top: 0;
+	flex-flow: column;
+	justify-content: center;
+	height: 100%;
+	pointer-events: none;
+
+	&> .pageIndex_drawer {
+		position: relative;
+		left: calc( -100% + var(--tabWidth) + var(--tabMarginRight) );
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		pointer-events: auto;
+		transition: left 0.25s ease-in-out;
+		
+		&> .pageIndex_nav {
+			max-height: 100vh;
+			overflow-x: hidden;
+			overflow-y: auto;
+			padding: 0.75em;
+			
+			&> .pageIndex_title {
+				display: block;
+				width: fit-content;
+				border-top-left-radius: 0; /* 0.75em */
+				border-top-right-radius: 0; /* 0.75em */
+				padding: 0; /* 0.5rem 1rem */
+				background: var(--colour-background);
+				color: var(--colour-foreground);
+				box-shadow: var(--boxShadow);
+				font-weight: bold;
+				font-size: 0; /* 120% */
+				text-transform: uppercase;
+				opacity: 0; /* 1 */
+				transition: padding 0.25s ease-in-out,
+							border-radius 0.25s ease-in-out,
+							opacity 0.25s ease-in-out,
+							font-size 0.25s ease-in-out;
+			}
+	
+			&> ul {
+				display: flex;
+				flex-flow: column;
+				justify-content: space-around; /* Aligns content to top when viewport is overflowed. 'center' does not */
+				gap: 0.5em;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				text-align: start;
+				transition: gap 0.25s ease-in-out;
+				
+				&> li {
+					position: relative;
+					margin: 0;
+					padding: 0;
+					line-height: unset;
+					letter-spacing: unset;
+					border-radius: 5rem;
+					font-size: 0; /* unset */
+					line-height: 0;
+					letter-spacing: 0;
+					background: var(--colour-background);
+					color: var(--colour-foreground);
+					box-shadow: var(--boxShadow);
+					transition: font-size 0.25s ease-in-out,
+								border-radius 0.25s ease-in-out,
+								line-height 0.25s ease-in-out;
+
+					&.active {
+						background: var(--colour-foreground);
+						color: var(--colour-background);
+					}
+					
+					&> a {
+						display: flex;
+						position: relative;
+						justify-content: flex-start;
+						align-items: center;
+						padding: 0.5rem;
+						text-decoration: none;
+						font-weight: bold;
+						color: inherit;
+						transition: padding 0.25s ease-in-out;
+						
+						&:before {
+							content:"\203A";
+							display: inline-block;
+							margin-inline-start: 0;
+							margin-inline-end: 0; /* 0.5rem */
+							transition: margin 0.1s ease-in-out;
+						}
+					}
+					
+				}
+			}
+		}
+
+		&> .pageIndex_tab {
+			display: flex;
+			flex: 0 0;
+			justify-content: center;
+			align-items: center;
+			left: calc( 100% + var(--tabWidth) );
+			width: var(--tabWidth);
+			height: 2.5em;
+			margin-right: var(--tabMarginRight);
+			padding: 0.6em 0.25em;
+			background: var(--colour-background);
+			color: var(--colour-foreground);
+			border-top-right-radius: 5em;
+			border-bottom-right-radius: 5em;
+			opacity: .4;
+			box-shadow: var(--boxShadow);
+			transition: all 0.25s ease-in-out;
+
+			svg {
+				height: 1.3em;
+				width: 1.3em;
+			}
+		}
+	}
+		
+	&.scrolling,
+	&.active {
+		& .pageIndex_drawer {
+			left: 0;
+		}
+		
+		& .pageIndex_tab {
+			width: 2.5em;
+			border-top-left-radius: 5em;
+			border-bottom-left-radius: 5em;
+			padding: 0.6em 0.6em;
+			background: #0000;
+			color: var(--colour-background);
+			pointer-events: auto;
+		}
+	}
+
+	&.scrolling:not( .active ) .pageIndex_nav a {
+		padding: 0.5rem !important;
+	}
+
+	&.active {
+		& .pageIndex_nav {
+			&> .pageIndex_title {
+				border-top-left-radius: 0.75em;
+				border-top-right-radius: 0.75em;
+				padding: 0.5rem 1rem;
+				background: var(--colour-background);
+				color: var(--colour-foreground);
+				box-shadow: var(--boxShadow);
+				opacity: 1;
+				font-size: 110%;
+				opacity: 0.8;
+			}
+
+			&> ul {
+				gap: 0px;
+
+				&> li {
+					border-radius: 0em;
+					font-size: unset;
+					line-height: 1.2;
+
+					&> a {
+						padding: 0.5rem 1rem;
+						
+						&:before {
+							margin-inline-start: 0; /* 0.25rem */
+							margin-inline-end: 0.5rem; /* 0.25rem */
+						}
+					}
+
+					&:not( :last-child ):after {
+						content: "";
+						display: block;
+						position: absolute;
+						bottom: 0;
+						height: 1px;
+						width: 100%;
+						background: linear-gradient( to right, #0000 0%, var(--colour-foreground) 50%, #0000 100% );
+						opacity: .5;
+					}
+
+					&:first-child {
+						border-top-right-radius: 0.75em;
+					}
+
+					&:last-child {
+						border-bottom-left-radius: 0.75em;
+						border-bottom-right-radius: 0.75em;
+					}
+				}
+			}
+		}
+		
+		&:not( .isTouch ) {
+			& .pageIndex_nav > ul > li > a { 
+				&:before {
+					margin-inline-start: 0; /* 0.25rem */
+					margin-inline-end: 0.5rem; /* 0.25rem */
+				}
+
+				&:hover:before {
+					margin-inline-start: 0.25rem;
+					margin-inline-end: 0.25rem;
+				}
+			}
+
+			& .pageIndex_tab {
+				opacity: 0;
+				pointer-events: none;
+			}
+		}
+	}
+
+	&.isTouch {
+		&.scrolling,
+		&.active {
+			& .pageIndex_tab {
+				border-top-left-radius: 5em;
+				border-bottom-left-radius: 5em;
+				background: #0000;
+				color: var(--colour-background);
+				pointer-events: auto;
+			}
+		}
+
+		&.active .pageIndex_tab {
+			opacity: 1;
+
+			.pageIndex_openIcon {
+				display: none;
+			}
+
+			.pageIndex_closeIcon {
+				display: block !important;
+			}
+		}
+	}
+	
+	&.active:not( .istouch ) .pageIndex_nav > ul > li > a { 
+		&:before {
+			margin-inline-start: 0; /* 0.25rem */
+			margin-inline-end: 0.5rem; /* 0.25rem */
+		}
+		
+		&:hover:before {
+			margin-inline-start: 0.25rem;
+			margin-inline-end: 0.25rem;
+		}
+	}
+}

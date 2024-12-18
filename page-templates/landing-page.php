@@ -12,7 +12,7 @@ wp_enqueue_script( 'hb_hideheader_js' );
 get_header( 'landing' );
 ?>
 
-<?php get_template_part( 'template-parts/landing-developer/content-index' ); ?>
+<?php get_template_part( 'template-parts/landing-developer/page-index' ); ?>
 
 <main class="main-landing">
 
